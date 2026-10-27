@@ -43,7 +43,9 @@ macOS/Linux 对应命令为 `cp index.html dist/index.html`。
 
 在另一台电脑登录拥有该站点的同一账号，并使用 Sites 插件继续发布此项目。让编码助手读取 `.openai/hosting.json`，按照 Sites 技能流程同步源代码、保存版本、部署并确认公开访问。必须复用原 project_id，不要新建站点或修改 slug/域名。
 
-GitHub 保存的是源码备份；提交 GitHub 不会自动更新当前在线作品。Sites 的源仓库和 GitHub 仓库是两个发布目的地，发布时应保留历史并按正常流程处理同步，不能强推覆盖。
+GitHub 保存的是源码备份；提交 GitHub 不会自动更新当前在线作品。Sites 的源仓库和 GitHub 仓库具有独立的 Git 历史，不能强推覆盖，也不应直接在 GitHub 克隆目录中运行 Sites 的源同步流程。
+
+换机后的发布方式：先让 Sites 技能在另一个空目录中打开现有 project_id，恢复它自己的源仓库；再把本仓库中更新后的 `index.html`、`dist/index.html` 和交接文档复制过去，保留原 `.openai/hosting.json`；最后在这个 Sites 工作目录中按官方流程提交、同步、保存版本和部署。继续在 GitHub 开发目录中正常提交源码备份。这个方式无需合并两份独立的 Git 历史。
 
 首次上线对应源提交：`171623c868a33783605f2f460649001deb512594`。
 
